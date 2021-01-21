@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNIST - Digit Recogniser</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" 
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" 
+        crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id="description">
+            <div id="title">
+                MNIST Digit Recogniser
+            </div>
+            <div id="info">
+                <a href="#" data-status="0">Show Description</a>
+            </div>
+            <div id="content_wrapper">
+                <div id="content">
+                    <h1>
+                        Description
+                    </h1>
+                    <div id="main">
+                        <p>
+                            This is a simple handwriting recogniser trained on the most famous and commonly used MNIST dataset. The recogniser is made possible by a deep-learning model using the Tensorflow Python library. Although the model is reasonably good at recognising most digits, it is not 100% accurate (just like any other ML models). So please don't have any expectations. 🙂
+                        </p>
+                    </div>
+                    <figure>
+                        <img src="image/MnistExamples.png" />
+                        <figcaption>
+                            Examples of MNIST training dataset
+                        </figcaption>
+                    </figure>
+                    <div>
+                        Source : <a target="_blank"
+                                    href
+                                        ="https://en.wikipedia.org/wiki/MNIST_database">Wikipedia</a>
+                    </div>
+                    <div id="close">
+                        <button id="close">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="input">
+            <div id="overlay-message">
+                DRAW YOUR DIGIT HERE
+            </div>
+            <canvas id="canvas" width = "500" height="500"></canvas>
+        </div>
+        <div id = "connection-lost">
+            Error : Connection Lost
+        </div>
+        <div id = "controls">
+            <div id = "output"></div>
+            <button id="recognise">Recognise</button>
+        </div>
+    </div>
+</body>
+</html>

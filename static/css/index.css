@@ -1,0 +1,178 @@
+html {
+    touch-action: none;
+}
+div#app {
+    display: flex;
+    position: fixed;
+    top : 0;
+    left : 0;
+    width: 100vw;
+    height : 100vh;
+    flex-direction: column;
+    align-items: center;
+    font-family: monospace;
+}
+
+div#app div#description {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div#description div#title {
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+div#description div#content_wrapper {
+    position: fixed;
+    display: none;
+    top : 0;
+    left : 0;
+    width: 100%;
+    height : 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#description div#content {
+    position : relative;
+    display : flex;
+    padding : 1em;
+    width: 100%;
+    max-width: 500px;
+    height : 100%;
+    max-height: 500px;
+    top : 0;
+    left : 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 1em;
+    margin : auto;
+    background : #eee;
+    transition : all 200ms;
+}
+
+div#content p {
+    text-align: justify;
+    margin : 0;
+}
+
+div#content h1 {
+    margin-top: -.5em;
+};
+
+
+div#content div#main {
+    font-size : 1em;
+    text-align: justify;
+}
+
+div#content img {
+    width : 100%;
+}
+
+div#content div#close {
+    display : none;
+    margin : 1em 0;
+}
+
+div#app div#input {
+    display : inline;
+    position : relative;
+    cursor : pointer;
+    margin-top : 0.1em
+}
+
+div#app div#input div#overlay-message {
+    position: absolute;
+    width : 100%;
+    height : 90%;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    flex-direction: column;
+    text-align: center;
+}
+
+div#app div#input canvas {
+    border : 1px solid black;
+}
+
+div#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div#controls div#output {
+    width: 30px;
+    height : 30px;
+    font-size: 2em;
+    text-align: center;
+    border : 1px solid #000;
+}
+
+div#connection-lost {
+    display : none;
+    color: red;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+button {
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100px;
+}
+button :hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+@media screen and (max-width: 500px) {
+    div#app {
+        margin-top: -2em;
+        justify-content: center;
+    }    
+
+    div#app div#content_wrapper {
+        flex-direction: column;
+        justify-content : center;
+        align-items: center;
+        background : #fff;
+    }
+
+    div#content_wrapper div#content {
+        position: relative;
+        display: flex;
+        padding: 0 !important;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        background: #eee;
+        border-radius: 0;
+    }
+
+    div#content p {
+        margin : 1em !important;
+    }
+
+    div#content div#close {
+        display : block;
+    }
+}
