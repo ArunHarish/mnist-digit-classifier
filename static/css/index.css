@@ -134,12 +134,17 @@ div#connection-lost {
 }
 
 button {
+    margin: 1em 0;
     font-weight: bold;
     text-transform: uppercase;
     width: 100px;
 }
 button :hover {
     background-color: rgba(0, 0, 0, 0.9);
+}
+
+div#src {
+    margin : 1em 0;
 }
 
 @media screen and (max-width: 500px) {

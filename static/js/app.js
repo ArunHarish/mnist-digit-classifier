@@ -12,7 +12,7 @@ $(document).ready(function() {
     let recogniseButton = $("button#recognise");
     let resetButton = $("button#reset");
     let closeButton = $("button#close")
-    let expandDescriptionButton = $("div#info a");
+    let expandDescriptionButton = $("a#info");
     
     let canvas = $("canvas#canvas");
     let context = canvas[0].getContext("2d");

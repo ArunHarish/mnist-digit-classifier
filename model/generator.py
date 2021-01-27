@@ -19,7 +19,7 @@ TOTAL_LABELS = 10
 
 """
     Generates a new CNN model with the architecture explained at the below link.
-    @see https://www.kaggle.com/ahmedbaz/how-to-choose-cnn-architecture-mnist
+    @see https://www.kaggle.com/cdeotte/how-to-choose-cnn-architecture-mnist
 """
 # Generate the model
 def generate_model():
