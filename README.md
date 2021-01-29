@@ -9,7 +9,7 @@ The model is pretty accurate, however, when I tested my own handwriting, it was 
 <img src="preview-content/preview.gif" width="480" alt="Digit classifier trained on MNIST dataset preview" />
 
 ## Result
-| Metric | Result |
+| Property | Value |
 | ------ | ------ |
 | Accuracy | ~98.02% |
 | Loss | ~6.6% |
