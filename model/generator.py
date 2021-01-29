@@ -53,17 +53,21 @@ def generate_model():
     model.add(tf.keras.layers.Dropout(0.40))
 
     model.add(tf.keras.layers.Flatten())
+    model.add(tf.keras.layers.Dense(128, activation="relu"))
+
+    model.add(tf.keras.layers.Flatten())
     model.add(tf.keras.layers.Dense(TOTAL_LABELS, activation="softmax"))
 
     return model
 
-model = generate_model()
+with tf.device("/GPU:0"):
+    model = generate_model()
 
-model.compile(optimizer=tf.keras.optimizers.SGD(), 
-            loss=tf.keras.losses.SparseCategoricalCrossentropy(), 
-            metrics=["accuracy"])
+    model.compile(optimizer=tf.keras.optimizers.SGD(), 
+                loss=tf.keras.losses.SparseCategoricalCrossentropy(), 
+                metrics=["accuracy"])
 
-model.fit(x_train, y_train, epochs=15, batch_size=64, 
-            validation_data=(x_test, y_test))
+    model.fit(x_train, y_train, epochs=15, batch_size=64, 
+                validation_data=(x_test, y_test))
  
-model.save("generated/")
+    model.save("generated/")

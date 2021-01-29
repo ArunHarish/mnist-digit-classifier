@@ -1,5 +1,6 @@
 import tensorflow as tf
 from os import path
+
 class Recogniser:
     
     def __init__(self):
@@ -13,3 +14,4 @@ class Recogniser:
         probability = self._model.predict(input)
         # Return
         return probability
+
