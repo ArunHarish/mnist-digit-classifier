@@ -5,6 +5,19 @@ The architecture of the neural network, i.e. the settings of each convolutional 
 
 The model is pretty accurate, however, when I tested my own handwriting, it was sometimes failing giving me the incorrect result. It has managed to learn important characteristics of individual digits, and when drawing, you must make sure it is clear for it recognises them. Follow the demo below, and it can guarantee you some success.
 
+## Technology
+### Front-end
+* JQuery
+* HTML/CSS
+
+### Back-end
+* Flask
+* AWS Lambda Serverless (Deployment)
+* Tensorflow
+
+## Live
+* Visit my <a href="https://demo.arunharish.com/mnist-digit-classifier" target="_blank"> demo page</a> for live deployment.
+
 ## Demo
 <img src="preview-content/preview.gif" width="480" alt="Digit classifier trained on MNIST dataset preview" />
 
@@ -15,15 +28,6 @@ The model is pretty accurate, however, when I tested my own handwriting, it was 
 | Loss | ~6.6% |
 | Validation Accuracy | ~99.1% |
 | Validation Loss | ~2.85% |
-## Technology
-### Front-end
-* JQuery
-* HTML/CSS
-
-### Back-end
-* Flask
-* AWS Lambda Serverless (Deployment)
-* Tensorflow
 
 ## Build
 Create a python virtual environment by following this [article](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/).
@@ -42,6 +46,3 @@ The actual model is located in its model directory. To generate a new model:
 ```console
 python generator.py
 ```
-
-## Demo
-* Visit my <a href="https://demo.arunharish.com/mnist-digit-classifier" target="_blank"> demo page</a>
