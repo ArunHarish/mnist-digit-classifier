@@ -22,8 +22,8 @@ The model is pretty accurate, however, when I tested my own handwriting, it was 
 
 ### Back-end
 * Flask
+* AWS Lambda Serverless (Deployment)
 * Tensorflow
-
 
 ## Build
 Create a python virtual environment by following this [article](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/).
@@ -42,3 +42,6 @@ The actual model is located in its model directory. To generate a new model:
 ```console
 python generator.py
 ```
+
+## Demo
+* Visit my <a href="https://demo.arunharish.com/mnist-digit-classifier" target="_blank"> demo page</a>
