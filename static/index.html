@@ -29,7 +29,7 @@
                     </h1>
                     <div id="main">
                         <p>
-                            This is a simple handwriting recogniser trained on the most famous and commonly used MNIST dataset. The recogniser is made possible by training a custom made deep neural network using the Tensorflow Python library. Although the model is reasonably good at recognising most digits, it is not 100% accurate (just like any other ML models). So, please don't have any expectations. 🙂
+                            This is a simple handwriting recogniser trained on the most famous and commonly used MNIST dataset. The recogniser is made possible by training a custom made deep neural network using the Tensorflow Python library, and deployed onto the AWS Lambda stack (Node.js) for inference using Tensorflow.js. Although the model is reasonably good at recognising most digits, it is not 100% accurate (just like any other ML models). So, please don't have expectations. 🙂
                         </p>
                     </div>
                     <figure>
@@ -51,16 +51,38 @@
         </div>
         <div id="input">
             <div id="overlay-message">
-                DRAW YOUR DIGIT HERE
+                DRAW YOUR DIGIT (0-9) HERE
+            	<div id="instruction">
+                
+                    <div id="title">
+                        Instruction
+                    </div>
+                    <ul>
+                        <li>
+                            Try to fill the entire space 🙂.
+                        </li>
+                        <li>
+                            Once drawn click the recognise button.
+                        </li>
+                        <li>
+                            Re-draw after your digit is recognised.
+                        </li>
+                    </ul>
+                </div>
             </div>
             <canvas id="canvas" width = "500" height="500"></canvas>
         </div>
+        <div id="cold-start-instruction">
+            Hold tight for few more seconds. The Lambda is getting the cold start
+        </div>
         <div id = "connection-lost">
-            Error : Connection Lost
+            Error : Sorry something went wrong<br />
+            Press the reset button to try again.
         </div>
         <div id = "controls">
             <div id = "output"></div>
             <button id="recognise">Recognise</button>
+            <button id="reset">Reset</button>
         </div>
     </div>
 </body>
