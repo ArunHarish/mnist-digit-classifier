@@ -2,7 +2,7 @@ $(document).ready(function() {
     const MAX_DIMENSION = 500;
     const BORDER_WIDTH = 2;
     const PADDING_SIZE = 10;
-
+    const AWS_LAMBDA = "https://lx3lihrph7.execute-api.ap-southeast-2.amazonaws.com/default/mnist-digit-classifier";
     let input = $("div#input");
     let output = $("div#output");
     let overlayMessage = $("div#overlay-message");
@@ -144,10 +144,11 @@ $(document).ready(function() {
 
         dummyContext.putImageData(imageData, 0, 0);
 
-        return dummyCanvas.toDataURL();
+        return dummyCanvas;
     };
+    
 
-    function invertBeforeSend(imageData) {
+    function invertBeforeSend(imageCanvas) {
         return new Promise(function(resolve, reject) {
             let width = canvas.attr("width"),
                 height = canvas.attr("height");
@@ -161,7 +162,7 @@ $(document).ready(function() {
             // Setting the attributes for the dummy image
             dummyImage.attr("width", width);
             dummyImage.attr("height", height);
-            dummyImage.attr("src", imageData);
+            dummyImage.attr("src", imageCanvas.toDataURL());
             // Load the image
             dummyImage.on("load", function() {
                 // Draw the image onto the canvas
@@ -180,14 +181,18 @@ $(document).ready(function() {
 
     async function sendContent() {
         try {
-            let imageData = await invertBeforeSend(canvas[0].toDataURL());
+            let imageData = await invertBeforeSend(canvas[0]);
+            let resizedImageData = await resize(28, 28, imageData);
             $.ajax({
-                url : "/recognise",
+                url : AWS_LAMBDA,
                 method : "post",
+        		headers: {
+        			"x-api-key": "{{KEY_COMES_HERE}}"
+        		},
                 dataType : "json",
                 contentType : "application/json",
                 data : JSON.stringify({
-                    image : imageData
+                    image : resizedImageData.src
                 }),
                 timeout : 3000
             }).then(function(data) {
